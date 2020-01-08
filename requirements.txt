@@ -1,6 +1,6 @@
-wemake-python-styleguide==0.13.3
 black==19.10b0
 flask==1.1.1
 Flask-RESTful==0.3.7
 pytest==5.3.2
 pylint==2.4.4
+bandit==1.6.2
