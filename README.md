@@ -1,6 +1,10 @@
 # Bitehack API
 API for Bitehack (hackaton)
 
+![CI](https://github.com/marcinxkaminski/bitehack-api/workflows/CI/badge.svg?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/github/marcinxkaminski/bitehack-api/badge.svg?targetFile=requirements.txt)](https://snyk.io/test/github/marcinxkaminski/bitehack-api?targetFile=requirements.txt)
+
+
 ## Development
 
   - Install
