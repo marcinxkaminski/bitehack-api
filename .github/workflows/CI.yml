@@ -24,6 +24,6 @@ jobs:
     - name: Lint
       run: pylint app/
     - name: Bandit
-      run: bandit app/
+      run: bandit -r app/
     - name: Test
       run: pytest tests/
