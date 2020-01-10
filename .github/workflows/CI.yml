@@ -28,11 +28,9 @@ jobs:
     - name: Test
       run: pytest
     - name: Coverage Report
-      run: coverage run --source=tests/ -m pytest; coverage report
-    - name: Code Coverage - CodeClimate
-      uses: paambaati/codeclimate-action@v2.3.0
-      env:
-        CC_TEST_REPORTER_ID: ${{secrets.CODE_CLIMATE_TOKEN}}
+      run: coverage run --source=tests/ -m pytest; coverage xml; coverage report
+    - name: Code Climate Test Reporter
+      uses: aktions/codeclimate-test-reporter@v1
       with:
-        coverageCommand: pip install -r requirements.txt; coverage run --source=tests/ -m pytest; coverage xml;
-        debug: true
+        codeclimate-test-reporter-id: ${{ secrets.CODE_CLIMATE_TOKEN }}
+        command: after-build
