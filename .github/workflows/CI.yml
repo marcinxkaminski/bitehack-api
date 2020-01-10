@@ -34,5 +34,5 @@ jobs:
       env:
         CC_TEST_REPORTER_ID: ${{secrets.CODE_CLIMATE_TOKEN}}
       with:
-        coverageCommand: coverage run --source=tests/ -m pytest tests/; coverage xml
+        coverageCommand: coverage run --source=tests/ -m pytest; coverage xml
         debug: true
