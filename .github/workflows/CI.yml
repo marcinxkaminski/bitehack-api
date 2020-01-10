@@ -27,10 +27,12 @@ jobs:
       run: bandit -r app/
     - name: Test
       run: pytest
+    - name: Coverage Report
+      run: coverage run --source=tests/ -m pytest tests/; coverage report
     - name: Code Coverage - CodeClimate
       uses: paambaati/codeclimate-action@v2.3.0
       env:
         CC_TEST_REPORTER_ID: ${{secrets.CODE_CLIMATE_TOKEN}}
       with:
-        coverageCommand: coverage run --source=tests -m pytest tests/;coverage json;coverage report
+        coverageCommand: coverage run --source=tests/ -m pytest tests/
         debug: true
