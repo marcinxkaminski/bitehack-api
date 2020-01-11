@@ -3,7 +3,7 @@ from flask_restful import Resource
 USERS = [
     {
         "name": "Marcin Kamiński",
-        "id": "8fc6734e-4765-48d9-88c2-fb9da65d52bc"
+        "id": "8fc6734e-4765-48d9-88c2-fb9da65d52bc",
         "github": "https://github.com/marcinxkaminski",
         "avatar": "https://avatars2.githubusercontent.com/u/26044111?s=460&v=4",
         "room": "101",

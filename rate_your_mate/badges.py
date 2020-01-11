@@ -2,6 +2,7 @@ from flask_restful import Resource
 
 BADGES = [{}]
 
+
 class Badges(Resource):
     def get(self) -> str:
         """
