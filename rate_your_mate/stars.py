@@ -4,6 +4,7 @@ from datetime import date
 
 ADD_STAR_VALUE = 1
 
+
 def add_star_to_user(user_id: str, category_id: str):
     USERS[user_id]["stars"] += ADD_STAR_VALUE
 
@@ -12,8 +13,8 @@ def add_star_to_user(user_id: str, category_id: str):
     else:
         USERS[user_id]["categories"][category_id] = {
             "id": category_id,
-            "name": CATEGORIES[category_id]["name"]
-            "stars": ADD_STAR_VALUE
+            "name": CATEGORIES[category_id]["name"],
+            "stars": ADD_STAR_VALUE,
         }
 
 
@@ -26,20 +27,21 @@ def add_star_to_category(user_id: str, category_id: str):
         CATEGORIES[category_id]["dates"][today]["stars"] += ADD_STAR_VALUE
 
         if user_id in CATEGORIES[category_id]["dates"][today]["users"]:
-            CATEGORIES[category_id]["dates"][today]["users"][user_id]["stars"] += ADD_STAR_VALUE
+            CATEGORIES[category_id]["dates"][today]["users"][user_id][
+                "stars"
+            ] += ADD_STAR_VALUE
         else:
-            CATEGORIES[category_id]["dates"][today]["users"][user_id] = {"id": user_id, "stars": ADD_STAR_VALUE}
+            CATEGORIES[category_id]["dates"][today]["users"][user_id] = {
+                "id": user_id,
+                "stars": ADD_STAR_VALUE,
+            }
 
     else:
         CATEGORIES[category_id]["dates"][today] = {
             "stars": ADD_STAR_VALUE,
-            "users": {
-                f'{user_id}':{
-                    "id": user_id,
-                    "stars": ADD_STAR_VALUE
-                }
-            }
+            "users": {f"{user_id}": {"id": user_id, "stars": ADD_STAR_VALUE}},
         }
+
 
 class Stars(Resource):
     def post(self) -> str:
