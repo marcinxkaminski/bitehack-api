@@ -5,7 +5,7 @@ from rate_your_mate.config import (
     USERS_STATS_CSV_FILE_PATH,
     CSV_DELIMITER,
     CATEGORIES_CSV_HEADER,
-    USERS_CSV_HEADER
+    USERS_CSV_HEADER,
 )
 from rate_your_mate.mocks import CATEGORIES
 

@@ -18,26 +18,24 @@ def add_star_to_user(user_id: str, category_id: str):
         }
 
 
-def add_star_to_category(user_id: str, category_id: str):
+def add_star_to_category(user_id: str, category_id: str, day: str = date.today()):
     CATEGORIES[category_id]["stars"] += ADD_STAR_VALUE
 
-    today = date.today()
+    if day in CATEGORIES[category_id]["dates"]:
+        CATEGORIES[category_id]["dates"][day]["stars"] += ADD_STAR_VALUE
 
-    if today in CATEGORIES[category_id]["dates"]:
-        CATEGORIES[category_id]["dates"][today]["stars"] += ADD_STAR_VALUE
-
-        if user_id in CATEGORIES[category_id]["dates"][today]["users"]:
-            CATEGORIES[category_id]["dates"][today]["users"][user_id][
+        if user_id in CATEGORIES[category_id]["dates"][day]["users"]:
+            CATEGORIES[category_id]["dates"][day]["users"][user_id][
                 "stars"
             ] += ADD_STAR_VALUE
         else:
-            CATEGORIES[category_id]["dates"][today]["users"][user_id] = {
+            CATEGORIES[category_id]["dates"][day]["users"][user_id] = {
                 "id": user_id,
                 "stars": ADD_STAR_VALUE,
             }
 
     else:
-        CATEGORIES[category_id]["dates"][today] = {
+        CATEGORIES[category_id]["dates"][day] = {
             "stars": ADD_STAR_VALUE,
             "users": {f"{user_id}": {"id": user_id, "stars": ADD_STAR_VALUE}},
         }

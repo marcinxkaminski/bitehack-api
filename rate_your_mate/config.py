@@ -13,9 +13,12 @@ ENDPOINTS = {
 }
 
 # Stats
-
-CATEGORIES_STATS_CSV_FILE_PATH = "rate_your_mate/categories_stats.csv"
-USERS_STATS_CSV_FILE_PATH = "rate_your_mate/users_stats.csv"
+CATEGORIES_STATS_CSV_FILE_PATH = "rate_your_mate/data/categories_stats.csv"
+USERS_STATS_CSV_FILE_PATH = "rate_your_mate/data/users_stats.csv"
 CSV_DELIMITER = ","
 CATEGORIES_CSV_HEADER = ["CATEGORY_ID", "DATE", "STARS"]
 USERS_CSV_HEADER = ["USER_ID", "CATEGORY_ID", "DATE", "STARS"]
+
+# Mocks
+CATEGORIES_DATA_PATH = "rate_your_mate/data/categories-final.json"
+USERS_DATA_PATH = "rate_your_mate/data/users-final.json"
