@@ -1,14 +1,10 @@
 from flask_restful import Resource
-
-BADGES = [{}]
+from rate_your_mate.mocks import BADGES
 
 
 class Badges(Resource):
     def get(self) -> str:
-        """
-        Gets list of users available to rate
-        """
-        return USERS
+        return BADGES
 
     def post(self) -> str:
         return "POST"

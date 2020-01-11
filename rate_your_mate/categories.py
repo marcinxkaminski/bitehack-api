@@ -1,51 +1,44 @@
 from flask_restful import Resource
+from rate_your_mate.mocks import CATEGORIES
+import rate_your_mate.uuid as uuid
 
-CATEGORIES = [
-    {
-        "name": "javascript",
-        "id": "c2bb7366-e76a-42bf-a844-8596d81e158e",
-        "stars": 20,
-        "data": {
-            "2020-01-10": {
-                "stars": 8,
-                "users": [{"id": "8fc6734e-4765-48d9-88c2-fb9da65d52bc", "stars": 8}],
-            },
-            "2020-01-11": {
-                "stars": 12,
-                "users": [{"id": "8fc6734e-4765-48d9-88c2-fb9da65d52bc", "stars": 12}],
-            },
-        },
-    },
-    {
-        "name": "python",
-        "id": "b3edb784-fa7f-4ea7-a400-b3cdc7e81651",
-        "stars": 10,
-        "data": {
-            "2020-01-10": {
-                "stars": 2,
-                "users": [{"id": "8fc6734e-4765-48d9-88c2-fb9da65d52bc", "stars": 2}],
-            },
-            "2020-01-11": {
-                "stars": 8,
-                "users": [{"id": "8fc6734e-4765-48d9-88c2-fb9da65d52bc", "stars": 8}],
-            },
-        },
-    },
-]
+EMPTY_CATEGORY = {"name": "", "id": "", "stars": 0, "data": {}}
 
 
 class Categories(Resource):
-    def get(self) -> str:
+    def get(self) -> list:
         """
         Gets list of categories available to rate
         """
         return [{"name": c["name"], "id": c["id"]} for c in CATEGORIES]
 
-    def post(self) -> str:
-        return "POST"
+    def post(self) -> dict:
+        """
+        Adds new category
+        """
+        body = request.get_json(force=True)
+        user = body.get("user", {})
+        category = body.get("category", {})
 
-    def put(self) -> str:
-        return "PUT"
+        id = uuid.create()
+        new_category = {**EMPTY_CATEGORY, **category, "id": id}
+        CATEGORIES[id] = new_category
 
-    def delete(self) -> str:
-        return "DELETE"
+        return new_category
+
+    def put(self) -> dict:
+        """
+        Updates category
+        """
+        category = request.get_json(force=True)
+
+        id = category["id"]
+        updated_category = {**CATEGORIES[id], **category}
+        CATEGORIES[id] = updated_category
+
+        return updated_category
+
+    def delete(self):
+        category = request.get_json(force=True)
+
+        del CATEGORIES[category["id"]]

@@ -2,6 +2,20 @@ from flask_restful import Resource
 import rate_your_mate.uuid as uuid
 from rate_your_mate.mocks import USERS
 
+EMPTY_USER = {
+    "id": "",
+    "categories": {},
+    "badges": {},
+    "name": "",
+    "github": "",
+    "linkedin": "",
+    "avatar": "",
+    "room": "",
+    "city": "",
+    "position": "",
+    "stars": 0,
+}
+
 
 class Users(Resource):
     def get(self) -> dict:
@@ -16,9 +30,9 @@ class Users(Resource):
         """
         user = request.get_json(force=True)
 
-        new_user = {**user, "id": uuid.create(), "categories": {}, "badges": {}}
-
-        USERS.append(new_user)
+        id = uuid.create()
+        new_user = {**EMPTY_USER, **user, "id": id}
+        USERS[id] = new_user
 
         return new_user
 
@@ -29,9 +43,7 @@ class Users(Resource):
         user = request.get_json(force=True)
 
         id = user["id"]
-
         updated_user = {**USERS[id], **user}
-
         USERS[id] = updated_user
 
         return updated_user
