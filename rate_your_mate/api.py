@@ -1,6 +1,6 @@
 from flask_restful import Api
-from endpoint import Endpoint
-from config import ENDPOINTS
+from rate_your_mate.endpoint import Endpoint
+from rate_your_mate.config import ENDPOINTS
 
 
 def init_api(app) -> Api:
