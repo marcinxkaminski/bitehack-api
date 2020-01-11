@@ -30,9 +30,9 @@ class Users(Resource):
         """
         user = request.get_json(force=True)
 
-        id = uuid.create()
-        new_user = {**EMPTY_USER, **user, "id": id}
-        USERS[id] = new_user
+        user_id = uuid.create()
+        new_user = {**EMPTY_USER, **user, "id": user_id}
+        USERS[user_id] = new_user
 
         return new_user
 
@@ -42,9 +42,9 @@ class Users(Resource):
         """
         user = request.get_json(force=True)
 
-        id = user["id"]
-        updated_user = {**USERS[id], **user}
-        USERS[id] = updated_user
+        user_id = user["id"]
+        updated_user = {**USERS[user_id], **user}
+        USERS[user_id] = updated_user
 
         return updated_user
 

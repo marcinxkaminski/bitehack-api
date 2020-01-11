@@ -20,9 +20,9 @@ class Categories(Resource):
         user = body.get("user", {})
         category = body.get("category", {})
 
-        id = uuid.create()
-        new_category = {**EMPTY_CATEGORY, **category, "id": id}
-        CATEGORIES[id] = new_category
+        category_id = uuid.create()
+        new_category = {**EMPTY_CATEGORY, **category, "id": category_id}
+        CATEGORIES[category_id] = new_category
 
         return new_category
 
@@ -32,9 +32,9 @@ class Categories(Resource):
         """
         category = request.get_json(force=True)
 
-        id = category["id"]
-        updated_category = {**CATEGORIES[id], **category}
-        CATEGORIES[id] = updated_category
+        category_id = category["id"]
+        updated_category = {**CATEGORIES[category_id], **category}
+        CATEGORIES[icategory_idd] = updated_category
 
         return updated_category
 

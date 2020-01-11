@@ -13,12 +13,12 @@ USERS = {
             "c2bb7366-e76a-42bf-a844-8596d81e158e": {
                 "name": "javascript",
                 "id": "c2bb7366-e76a-42bf-a844-8596d81e158e",
-                "stars": 20,
+                "stars": 800,
             },
             "b3edb784-fa7f-4ea7-a400-b3cdc7e81651": {
                 "name": "python",
                 "id": "b3edb784-fa7f-4ea7-a400-b3cdc7e81651",
-                "stars": 10,
+                "stars": 700,
             },
         },
         "badges": {
@@ -40,7 +40,18 @@ USERS = {
         "city": "Cracow",
         "position": "Back-End Engineer",
         "stars": 0,
-        "categories": {},
+        "categories": {
+            "c2bb7366-e76a-42bf-a844-8596d81e158e": {
+                "name": "javascript",
+                "id": "c2bb7366-e76a-42bf-a844-8596d81e158e",
+                "stars": 700,
+            },
+            "b3edb784-fa7f-4ea7-a400-b3cdc7e81651": {
+                "name": "python",
+                "id": "b3edb784-fa7f-4ea7-a400-b3cdc7e81651",
+                "stars": 800,
+            },
+        },
         "badges": {},
     },
 }
@@ -49,23 +60,27 @@ CATEGORIES = {
     "c2bb7366-e76a-42bf-a844-8596d81e158e": {
         "name": "javascript",
         "id": "c2bb7366-e76a-42bf-a844-8596d81e158e",
-        "stars": 20,
+        "stars": 1500,
         "dates": {
             "2020-01-10": {
-                "stars": 8,
+                "stars": 10,
                 "users": {
                     "8fc6734e-4765-48d9-88c2-fb9da65d52bc": {
                         "id": "8fc6734e-4765-48d9-88c2-fb9da65d52bc",
-                        "stars": 8,
+                        "stars": 10,
+                    },
+                    "74f9875d-400e-4508-b70a-bcb090d338fd": {
+                        "id": "74f9875d-400e-4508-b70a-bcb090d338fd",
+                        "stars": 15,
                     }
                 },
             },
             "2020-01-11": {
-                "stars": 12,
+                "stars": 20,
                 "users": {
                     "8fc6734e-4765-48d9-88c2-fb9da65d52bc": {
                         "id": "8fc6734e-4765-48d9-88c2-fb9da65d52bc",
-                        "stars": 12,
+                        "stars": 20,
                     }
                 },
             },
@@ -74,7 +89,7 @@ CATEGORIES = {
     "b3edb784-fa7f-4ea7-a400-b3cdc7e81651": {
         "name": "python",
         "id": "b3edb784-fa7f-4ea7-a400-b3cdc7e81651",
-        "stars": 10,
+        "stars": 1500,
         "dates": {
             "2020-01-10": {
                 "stars": 2,

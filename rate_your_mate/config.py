@@ -9,4 +9,13 @@ ENDPOINTS = {
     "CATEGORIES": f"{BASE_ENDPOINT}/categories",
     "STARS": f"{BASE_ENDPOINT}/stars",
     "BADGES": f"{BASE_ENDPOINT}/badges",
+    "STATS": f"{BASE_ENDPOINT}/stats",
 }
+
+# Stats
+
+CATEGORIES_STATS_CSV_FILE_PATH = "rate_your_mate/categories_stats.csv"
+USERS_STATS_CSV_FILE_PATH = "rate_your_mate/users_stats.csv"
+CSV_DELIMITER = ","
+CATEGORIES_CSV_HEADER = ["CATEGORY_ID", "DATE", "STARS"]
+USERS_CSV_HEADER = ["USER_ID", "CATEGORY_ID", "DATE", "STARS"]
