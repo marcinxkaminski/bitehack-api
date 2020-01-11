@@ -9,6 +9,6 @@ def init_api(app) -> Api:
 
     api = Api(app)
 
-    api.add_resource(Users, ENDPOINTS.get("USERS"))
+    api.add_resource(Users, ENDPOINTS["USERS"])
 
     return api
