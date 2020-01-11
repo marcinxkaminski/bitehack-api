@@ -1,4 +1,5 @@
 from flask_restful import Resource
+import rate_your_mate.uuid as uuid
 
 USERS = [
     {
@@ -70,9 +71,23 @@ class Users(Resource):
         """
         json_data = request.get_json(force=True)
 
-        return "POST"
+        new_user = {
+            **json_data,
+            "id": uuid.create(),
+            "categories": {},
+            "badges": {}
+        }
+
+        USERS.append(new_user)
+
+        return new_user
 
     def put(self) -> str:
+        """
+        Updates user
+        """
+        json_data = request.get_json(force=True)
+
         return "PUT"
 
     def delete(self) -> str:
