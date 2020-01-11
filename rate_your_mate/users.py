@@ -1,7 +1,7 @@
 from flask_restful import Resource
 
 
-class Endpoint(Resource):
+class Users(Resource):
     def get(self) -> str:
         """
         Gets list of users available to rate
