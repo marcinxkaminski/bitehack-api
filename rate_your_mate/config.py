@@ -4,4 +4,4 @@ DEBUG_MODE = True
 
 # Endpoints
 BASE_ENDPOINT = f"/api/v{API_VERSION}"
-ENDPOINTS = {"ENDPOINT": f"{BASE_ENDPOINT}/endpoint"}
+ENDPOINTS = {"USERS": f"{BASE_ENDPOINT}/users"}

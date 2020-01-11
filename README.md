@@ -16,12 +16,12 @@
 
   - Run linter
   ```
-  $ pylint app/
+  $ pylint rate_your_mate/
   ```
 
   - Use black (code formatter)
   ```
-  $ black app/
+  $ black rate_your_mate/
   ```
 
   - Test
