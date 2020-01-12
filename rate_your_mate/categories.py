@@ -2,7 +2,7 @@ from flask_restful import Resource, request, reqparse
 from rate_your_mate.mocks import CATEGORIES
 import rate_your_mate.uuid as uuid
 
-EMPTY_CATEGORY = {"name": "", "id": "", "stars": 0, "data": {}}
+EMPTY_CATEGORY = {"name": "", "id": "", "stars": 0, "dates": {}}
 
 
 class Categories(Resource):
