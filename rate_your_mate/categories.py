@@ -1,4 +1,4 @@
-from flask_restful import Resource
+from flask_restful import Resource, request, reqparse
 from rate_your_mate.mocks import CATEGORIES
 import rate_your_mate.uuid as uuid
 
