@@ -44,8 +44,8 @@ def add_star_to_category(user_id: str, category_id: str, day: str = date.today()
 class Stars(Resource):
     def __init__(self):
         self.reqparse = reqparse.RequestParser()
-        self.reqparse.add_argument('user', type=dict, required=False, location='json')
-        self.reqparse.add_argument('category', type=dict, location='json')
+        self.reqparse.add_argument("user", type=dict, required=False, location="json")
+        self.reqparse.add_argument("category", type=dict, location="json")
         super(Stars, self).__init__()
 
     def post(self):
@@ -53,7 +53,7 @@ class Stars(Resource):
         Adds a star
         """
         stared = self.reqparse.parse_args()
-        print('params', stared)
+        print("params", stared)
 
         user_id = stared.get("user", {})["id"]
         category_id = stared.get("category", {})["id"]

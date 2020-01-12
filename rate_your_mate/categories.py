@@ -6,6 +6,12 @@ EMPTY_CATEGORY = {"name": "", "id": "", "stars": 0, "data": {}}
 
 
 class Categories(Resource):
+    def __init__(self):
+        self.reqparse = reqparse.RequestParser()
+        self.reqparse.add_argument("user", type=dict, location="json")
+        self.reqparse.add_argument("category", type=dict, location="json")
+        super(Categories, self).__init__()
+
     def get(self) -> list:
         """
         Gets list of categories available to rate
@@ -30,15 +36,15 @@ class Categories(Resource):
         """
         Updates category
         """
-        category = self.reqparse.parse_args()
+        body = self.reqparse.parse_args()
 
-        category_id = category["id"]
+        category_id = body["category"]["id"]
         updated_category = {**CATEGORIES[category_id], **category}
-        CATEGORIES[icategory_idd] = updated_category
+        CATEGORIES[category_id] = updated_category
 
         return updated_category
 
     def delete(self):
-        category = self.reqparse.parse_args()
+        body = self.reqparse.parse_args()
 
-        del CATEGORIES[category["id"]]
+        del CATEGORIES[body["category"]["id"]]
