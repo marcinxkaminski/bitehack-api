@@ -1,4 +1,4 @@
-from flask_restful import Resource, request
+from flask_restful import Resource, request, reqparse
 from rate_your_mate.mocks import USERS, CATEGORIES
 from datetime import date
 
@@ -42,7 +42,13 @@ def add_star_to_category(user_id: str, category_id: str, day: str = date.today()
 
 
 class Stars(Resource):
-    def post(self) -> str:
+    def __init__(self):
+        self.reqparse = reqparse.RequestParser()
+        self.reqparse.add_argument('user', type=dict, required=False, location='json')
+        self.reqparse.add_argument('category', type=dict, default="", location='json')
+        super(TaskListAPI, self).__init__()
+
+    def post(self):
         """
         Adds a star
         """
