@@ -1,4 +1,4 @@
-from flask_restful import Resource
+from flask_restful import Resource, request
 from rate_your_mate.mocks import USERS, CATEGORIES
 from datetime import date
 
@@ -46,7 +46,7 @@ class Stars(Resource):
         """
         Adds a star
         """
-        stared = request.get_json(force=True)
+        stared = self.reqparse.parse_args()
 
         user_id = stared.get("user", {})["id"]
         category_id = stared.get("category", {})["id"]

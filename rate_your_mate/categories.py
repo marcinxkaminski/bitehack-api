@@ -16,7 +16,7 @@ class Categories(Resource):
         """
         Adds new category
         """
-        body = request.get_json(force=True)
+        body = self.reqparse.parse_args()
         user = body.get("user", {})
         category = body.get("category", {})
 
@@ -30,7 +30,7 @@ class Categories(Resource):
         """
         Updates category
         """
-        category = request.get_json(force=True)
+        category = self.reqparse.parse_args()
 
         category_id = category["id"]
         updated_category = {**CATEGORIES[category_id], **category}
@@ -39,6 +39,6 @@ class Categories(Resource):
         return updated_category
 
     def delete(self):
-        category = request.get_json(force=True)
+        category = self.reqparse.parse_args()
 
         del CATEGORIES[category["id"]]

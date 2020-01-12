@@ -28,7 +28,7 @@ class Users(Resource):
         """
         Adds new user
         """
-        user = request.get_json(force=True)
+        user = self.reqparse.parse_args()
 
         user_id = uuid.create()
         new_user = {**EMPTY_USER, **user, "id": user_id}
@@ -40,7 +40,7 @@ class Users(Resource):
         """
         Updates user
         """
-        user = request.get_json(force=True)
+        user = self.reqparse.parse_args()
 
         user_id = user["id"]
         updated_user = {**USERS[user_id], **user}
@@ -49,6 +49,6 @@ class Users(Resource):
         return updated_user
 
     def delete(self):
-        user = request.get_json(force=True)
+        user = self.reqparse.parse_args()
 
         del USERS[user["id"]]
