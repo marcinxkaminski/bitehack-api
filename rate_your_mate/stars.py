@@ -1,5 +1,5 @@
 from flask_restful import Resource, request, reqparse
-from rate_your_mate.mocks import USERS, CATEGORIES
+from rate_your_mate.mocks import USERS, CATEGORIES, save_users, save_categories
 from datetime import date
 
 ADD_STAR_VALUE = 1
@@ -60,3 +60,5 @@ class Stars(Resource):
 
         add_star_to_user(user_id=user_id, category_id=category_id)
         add_star_to_category(user_id=user_id, category_id=category_id)
+        save_users(users=USERS)
+        save_categories(categories=CATEGORIES)

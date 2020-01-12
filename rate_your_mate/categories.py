@@ -1,5 +1,5 @@
 from flask_restful import Resource, request, reqparse
-from rate_your_mate.mocks import CATEGORIES
+from rate_your_mate.mocks import CATEGORIES, save_categories
 import rate_your_mate.uuid as uuid
 
 EMPTY_CATEGORY = {"name": "", "id": "", "stars": 0, "data": {}}
@@ -30,6 +30,7 @@ class Categories(Resource):
         new_category = {**EMPTY_CATEGORY, **category, "id": category_id}
         CATEGORIES[category_id] = new_category
 
+        save_categories(categories=CATEGORIES)
         return new_category
 
     def put(self) -> dict:
@@ -42,9 +43,11 @@ class Categories(Resource):
         updated_category = {**CATEGORIES[category_id], **category}
         CATEGORIES[category_id] = updated_category
 
+        save_categories(categories=CATEGORIES)
         return updated_category
 
     def delete(self):
         body = self.reqparse.parse_args()
 
         del CATEGORIES[body["category"]["id"]]
+        save_categories(categories=CATEGORIES)
