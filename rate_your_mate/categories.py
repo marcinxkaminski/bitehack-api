@@ -10,7 +10,7 @@ class Categories(Resource):
         """
         Gets list of categories available to rate
         """
-        return [{"name": c["name"], "id": c["id"]} for c in CATEGORIES]
+        return [{"name": c["name"], "id": c["id"]} for c_id, c in CATEGORIES.items()]
 
     def post(self) -> dict:
         """
