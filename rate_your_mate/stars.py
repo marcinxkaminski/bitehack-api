@@ -45,14 +45,15 @@ class Stars(Resource):
     def __init__(self):
         self.reqparse = reqparse.RequestParser()
         self.reqparse.add_argument('user', type=dict, required=False, location='json')
-        self.reqparse.add_argument('category', type=dict, default="", location='json')
-        super(TaskListAPI, self).__init__()
+        self.reqparse.add_argument('category', type=dict, location='json')
+        super(Stars, self).__init__()
 
     def post(self):
         """
         Adds a star
         """
         stared = self.reqparse.parse_args()
+        print('params', stared)
 
         user_id = stared.get("user", {})["id"]
         category_id = stared.get("category", {})["id"]
