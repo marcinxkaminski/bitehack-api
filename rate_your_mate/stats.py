@@ -37,25 +37,25 @@ def save_data_to_csv():
                             [user_id, category_id, date, user["stars"]]
                         )
 
-def read_all_charts_files:
+
+def read_all_charts_files():
     charts = {}
-    for root,dirs,files in os.walk(directory):
+    for root, dirs, files in os.walk(directory):
         for file in files:
             if file.endswith(".csv"):
-                category_id = file.split('.')[0]
+                category_id = file.split(".")[0]
                 charts[category_id] = {
                     "id": category_id,
                     "name": CATEGORIES[category_id]["name"],
-                    "data": []
+                    "data": [],
                 }
-                with open('file.txt', mode='r') as csv_file:
+                with open("file.txt", mode="r") as csv_file:
                     csv_reader = csv.DictReader(csv_file)
                     line_count = 0
                     for row in csv_reader:
-                        charts[category_id]["data"].append({
-                            "date": row["DATE"],
-                            "stars": row["STARS"]
-                        })
+                        charts[category_id]["data"].append(
+                            {"date": row["DATE"], "stars": row["STARS"]}
+                        )
 
     return charts
 
