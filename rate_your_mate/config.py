@@ -10,6 +10,7 @@ ENDPOINTS = {
     "STARS": f"{BASE_ENDPOINT}/stars",
     "BADGES": f"{BASE_ENDPOINT}/badges",
     "STATS": f"{BASE_ENDPOINT}/stats",
+    "RANK": f"{BASE_ENDPOINT}/rank",
 }
 
 # Stats

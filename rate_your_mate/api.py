@@ -4,6 +4,7 @@ from rate_your_mate.stars import Stars
 from rate_your_mate.badges import Badges
 from rate_your_mate.categories import Categories
 from rate_your_mate.stats import Stats
+from rate_your_mate.rank import Rank
 from rate_your_mate.config import ENDPOINTS
 
 
@@ -18,3 +19,4 @@ def init_api(app):
     api.add_resource(Stars, ENDPOINTS["STARS"])
     api.add_resource(Badges, ENDPOINTS["BADGES"])
     api.add_resource(Stats, ENDPOINTS["STATS"])
+    api.add_resource(Rank, ENDPOINTS["RANK"])
