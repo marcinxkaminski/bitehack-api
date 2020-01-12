@@ -8,7 +8,7 @@ def load_data(file: str) -> dict:
 
 
 def save_data(file: str, data: dict):
-    with open(file, "w") as f:
+    with open(file, "w+") as f:
         return json.dump(data, file)
 
 

@@ -23,3 +23,6 @@ USERS_CSV_HEADER = ["USER_ID", "CATEGORY_ID", "DATE", "STARS"]
 # Mocks
 CATEGORIES_DATA_PATH = "rate_your_mate/data/categories-final.json"
 USERS_DATA_PATH = "rate_your_mate/data/users-final.json"
+
+# Charts
+CHARTS_DIRECTORY_PATH = "rate_your_mate/data/categories_stats"

@@ -53,10 +53,17 @@ class Stars(Resource):
         Adds a star
         """
         stared = self.reqparse.parse_args()
-        print("params", stared)
 
         user_id = stared.get("user", {})["id"]
         category_id = stared.get("category", {})["id"]
+
+        if not category_id:
+            print('NO CATEGORY ID!')
+            return
+
+        if not user_id:
+            print('NO USER ID!')
+            return
 
         add_star_to_user(user_id=user_id, category_id=category_id)
         add_star_to_category(user_id=user_id, category_id=category_id)

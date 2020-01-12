@@ -8,6 +8,8 @@ from rate_your_mate.config import (
     USERS_CSV_HEADER,
 )
 from rate_your_mate.mocks import CATEGORIES
+from rate_your_mate.config import CHARTS_DIRECTORY_PATH
+import os
 
 
 def save_data_to_csv():
@@ -40,7 +42,7 @@ def save_data_to_csv():
 
 def read_all_charts_files():
     charts = {}
-    for root, dirs, files in os.walk(directory):
+    for root, dirs, files in os.walk(CHARTS_DIRECTORY_PATH):
         for file in files:
             if file.endswith(".csv"):
                 category_id = file.split(".")[0]
@@ -49,7 +51,7 @@ def read_all_charts_files():
                     "name": CATEGORIES[category_id]["name"],
                     "data": [],
                 }
-                with open("file.txt", mode="r") as csv_file:
+                with open(os.path.join(CHARTS_DIRECTORY_PATH, file), mode="r") as csv_file:
                     csv_reader = csv.DictReader(csv_file)
                     line_count = 0
                     for row in csv_reader:
