@@ -1,5 +1,7 @@
 # Rate Your Mate - REST API
 
+API used here: [Rate Your Mate App](https://github.com/marcinxkaminski/rate-your-mate-app)
+
 ![CI](https://github.com/marcinxkaminski/rate-your-mate-api/workflows/CI/badge.svg?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/marcinxkaminski/rate-your-mate-api/badge.svg?targetFile=requirements.txt)](https://snyk.io/test/github/marcinxkaminski/rate-your-mate-api?targetFile=requirements.txt)
 [![Maintainability](https://api.codeclimate.com/v1/badges/6aaa486eebc2178a48d7/maintainability)](https://codeclimate.com/github/marcinxkaminski/rate-your-mate-api/maintainability)
